@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be69f068-6aba-4322-8808-7a25f2a8c177" name="Changes" comment="add gitignore and readme">
-      <change afterPath="$PROJECT_DIR$/Lab1/gui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lab1/task1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lab1/task2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="be69f068-6aba-4322-8808-7a25f2a8c177" name="Changes" comment="functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab1/task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1/task2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,21 +23,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "DSKuro"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DSKuro&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DSKuro/Computer-Modelling-Labs.git",
-    "accountId": "6e44ec07-1dac-422d-ad15-eef0db0e2ebf"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DSKuro/Computer-Modelling-Labs.git&quot;,
+    &quot;accountId&quot;: &quot;6e44ec07-1dac-422d-ad15-eef0db0e2ebf&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2sRJ8xbCzkzTY0lEto4X7vYMWvj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -54,7 +51,8 @@
     "Python.task1.executor": "Run",
     "Python.task2.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Repos/PyCharmProjects/ModelLabs"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -95,12 +93,21 @@
       <option name="project" value="LOCAL" />
       <updated>1738412391714</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="functionality">
+      <option name="closed" value="true" />
+      <created>1738416196374</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1738416196374</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init rep" />
     <MESSAGE value="add gitignore and readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="add gitignore and readme" />
+    <MESSAGE value="functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="functionality" />
   </component>
 </project>

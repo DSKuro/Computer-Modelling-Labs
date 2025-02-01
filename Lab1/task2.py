@@ -17,6 +17,16 @@ def create_graphics():
      linear_trend = np.poly1d(set_line_by_data)
      print("{0}x + {1}".format(*set_line_by_data))
 
+     set_polinom_by_data2 = np.polyfit(numpy_x, numpy_y, 2)
+     polinom_trend2 = np.poly1d(set_polinom_by_data2)
+     linspace_x2 = np.linspace(numpy_x.min(), numpy_x.max())
+     print("${0}x^2 + {1}x + {2}$".format(*set_polinom_by_data2))
+
+     set_polinom_by_data4 = np.polyfit(numpy_x, numpy_y, 4)
+     polinom_trend4 = np.poly1d(set_polinom_by_data4)
+     linspace_x4 = np.linspace(numpy_x.min(), numpy_x.max())
+     print("${0}x^4 + {1}x^3 + {2}x^2 + {3}x + {4}$".format(*set_polinom_by_data4))
+
      set_polinom_by_data = np.polyfit(numpy_x, numpy_y, 6)
      polinom_trend = np.poly1d(set_polinom_by_data)
      linspace_x = np.linspace(numpy_x.min(), numpy_x.max())
@@ -37,7 +47,7 @@ def create_graphics():
 
      plt.figure(figsize=(15, 15))
 
-     plt.subplot(2, 2, 1)
+     plt.subplot(2, 3, 1)
 
      plt.scatter(numpy_x, numpy_y, label = 'data')
      plt.plot(numpy_x, linear_trend(numpy_x), linestyle='dashed', color="orange", label = 'linear trend')
@@ -45,19 +55,31 @@ def create_graphics():
      plt.legend(loc='upper right', fontsize=12)
      plt.title("Линейный \n$R^2=$" + str(linear_r2) + "\n{0}x + {1}".format(*set_line_by_data))
 
-     plt.subplot(2, 2, 2)
+     plt.subplot(2, 3, 3)
      plt.scatter(numpy_x, numpy_y) # точечный график по x_numpy, y_numpy
      plt.plot(linspace_x, polinom_trend(linspace_x), linestyle='dashed', color="purple") # полиномиальный тренд
      plt.grid(color="gainsboro") # Сетка
      plt.title("Полиномиальный \n$R^2=$" + str(polinom_r2) + "\n${0}x^6 + {1}x^5$ + \n${2}x^4 + {3}x^3$ + \n${4}x^2 + {5}x$ + \n${6}$".format(*set_polinom_by_data))
 
-     plt.subplot(2, 2, 3)
+     plt.subplot(2, 3, 2)
+     plt.scatter(numpy_x, numpy_y) # точечный график по x_numpy, y_numpy
+     plt.plot(linspace_x, polinom_trend2(linspace_x2), linestyle='dashed', color="purple") # полиномиальный тренд
+     plt.grid(color="gainsboro") # Сетка
+     plt.title("Полиномиальный 2 \n$R^2=$" + str(polinom_r2) + "${0}x^2 + {1}x$ + \n${2}$".format(*set_polinom_by_data2))
+
+     plt.subplot(2, 3, 4)
+     plt.scatter(numpy_x, numpy_y)  # точечный график по x_numpy, y_numpy
+     plt.plot(linspace_x, polinom_trend4(linspace_x4), linestyle='dashed', color="purple")  # полиномиальный тренд
+     plt.grid(color="gainsboro")  # Сетка
+     plt.title("Полиномиальный 4 \n$R^2=$" + str(polinom_r2) + "${0}x^4 + {1}x^3$ + \n${2}x^2 + {3}x$ + \n${4}$".format(*set_polinom_by_data4))
+
+     plt.subplot(2, 3, 5)
      plt.scatter(numpy_x, numpy_y) # точечный график по x_numpy, y_numpy
      plt.plot(numpy_x, log_trend, linestyle='dashed', color="purple") # логарифмический тренд
      plt.grid(color="gainsboro") # Сетка
      plt.title("Логарифмический \n$R^2=$" + str(log_r2) + "\n$-2,085ln(x) - 1,9446$")
 
-     plt.subplot(2, 2, 4)
+     plt.subplot(2, 3, 6)
      plt.scatter(numpy_x, numpy_y) # точечный график по x_numpy, y_numpy
      plt.plot(numpy_x, exp_trend, linestyle='dashed', color="purple")
      plt.grid(color="gainsboro") # Сетка
