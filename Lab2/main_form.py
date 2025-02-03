@@ -19,7 +19,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHeaderView, QLabel,
                                QPushButton, QSizePolicy, QTableWidget, QTableWidgetItem,
                                QTextEdit, QWidget, QDialog, QDialogButtonBox, QVBoxLayout)
-from solver import calculate_speed_height
+from solver import Solver
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
@@ -166,7 +166,8 @@ class Ui_Form(object):
             count = int(self.txtCount.toPlainText())
             step = float(self.txtStep.toPlainText())
             g = float(self.txtG.toPlainText())
-            t, v, h = calculate_speed_height(dc, dp, radius, mu, count, step, g)
+            solver = Solver(dc, dp, radius, mu, count, step, g)
+            t, v, h = solver.calculate_answer()
         except ValueError as error:
             dlg = AlertBox(str(error))
             dlg.exec()

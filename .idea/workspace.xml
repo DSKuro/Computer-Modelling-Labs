@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be69f068-6aba-4322-8808-7a25f2a8c177" name="Changes" comment="Lab 2">
+    <list default="true" id="be69f068-6aba-4322-8808-7a25f2a8c177" name="Changes" comment="update Lab1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1/Lab01-Lesha.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1/task1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1/task1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1/task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1/task2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab1/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1/gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2/main_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2/main_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2/solver.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738428626056</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update Lab1">
+      <option name="closed" value="true" />
+      <created>1738565593081</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1738565593081</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -143,6 +151,7 @@
     <MESSAGE value="functionality" />
     <MESSAGE value="final" />
     <MESSAGE value="Lab 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lab 2" />
+    <MESSAGE value="update Lab1" />
+    <option name="LAST_COMMIT_MESSAGE" value="update Lab1" />
   </component>
 </project>

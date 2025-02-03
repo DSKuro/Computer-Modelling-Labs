@@ -8,43 +8,60 @@ M = 650.0
 T = 0.02
 MAX_COUNT = 20
 
-def calculate_speed_height(
-        den_cop = DENSITY_OF_COPPER,
-        den_pet = DENSITY_OF_PETROL,
-        r = R,
-        mu = M,
-        max_count = MAX_COUNT,
-        times = T,
-        g = G
-):
-    mb = (den_cop - den_pet) * 4 * pi * r ** 3 / 3
-    mbg = mb * g
-    k1 = 6 * pi * mu * r
-    m = (4 / 3) * pi * r ** 3 * den_cop
-    t = []
-    v = []
-    h = []
-    t.append(0)
-    v.append(0)
-    h.append(0)
-    for i in range(1, max_count):
-        t.append(t[i - 1] + times)
-        v.append(
-            v[i - 1] + times / 2 * ((mbg - k1 * v[i - 1]) / m +
-                (
-                mbg - k1 * (v[i - 1] + times *
-                            (
-                                mbg - k1 * v[i - 1]
-                            ) /
-                            m)
-                )
-                / m
-            )
-        )
-        h.append(h[i - 1] + v[i] * times)
+class Solver:
+    def __init__(self,
+                 den_cop = DENSITY_OF_COPPER,
+                 den_pet = DENSITY_OF_PETROL,
+                 r = R,
+                 mu = M,
+                 max_count = MAX_COUNT,
+                 times = T,
+                 g = G):
+        self.den_cop = den_cop
+        self.den_pet = den_pet
+        self.r = r
+        self.mu = mu
+        self.max_count = max_count
+        self.times = times
+        self.g = g
+        self.mb = 0
+        self.mbg = 0
+        self.k1 = 0
+        self.m = 0
 
-    print(t)
-    print(v)
-    return t, v, h
-if __name__ == "__main__":
-    calculate_speed_height()
+    def __calculate_temp_vars(self):
+        self.mb = (self.den_cop - self.den_pet) * 4 * pi * self.r ** 3 / 3
+        self.mbg = self.mb * self.g
+        self.k1 = 6 * pi * self.mu * self.r
+        self.m = (4 / 3) * pi * self.r ** 3 * self.den_cop
+
+    def calculate_speed_height(self):
+        t = []
+        v = []
+        h = []
+        t.append(0)
+        v.append(0)
+        h.append(0)
+        for i in range(1, self.max_count):
+            t.append(t[i - 1] + self.times)
+            v.append(
+                v[i - 1] + self.times / 2 * ((self.mbg - self.k1 * v[i - 1]) / self.m +
+                                        (
+                                                self.mbg - self.k1 * (v[i - 1] + self.times *
+                                                            (
+                                                                    self.mbg - self.k1 * v[i - 1]
+                                                            ) /
+                                                            self.m)
+                                        )
+                                        / self.m
+                                        )
+            )
+            h.append(h[i - 1] + v[i] * self.times)
+
+        print(t)
+        print(v)
+        return t, v, h
+
+    def calculate_answer(self):
+        self.__calculate_temp_vars()
+        return self.calculate_speed_height()
