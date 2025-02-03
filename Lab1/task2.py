@@ -12,6 +12,16 @@ y = [21.572, 21.710, 21.715, 21.598, 21.808, 21.890, 21.677,
 numpy_x = np.array(x)
 numpy_y = np.array(y)
 
+def set_trend(trend, label, arg):
+     plt.plot(arg, trend, linestyle='dashed', color="orange", label = label)
+
+def create_subplot(nrows, ncol, index, arg, trend, label):
+     plt.subplot(nrows, ncol, index)
+     plt.scatter(numpy_x, numpy_y, label = 'data')
+     set_trend(trend, label, arg)
+     plt.grid(color="gainsboro")
+     plt.legend(loc='upper right', fontsize=8)
+
 def create_graphics():
      set_line_by_data = np.polyfit(numpy_x, numpy_y, 1)
      linear_trend = np.poly1d(set_line_by_data)
@@ -49,46 +59,31 @@ def create_graphics():
 
      plt.figure(figsize=(15, 15))
 
-     plt.subplot(2, 3, 1)
+     plt.subplot(3, 2, 1)
 
-     plt.scatter(numpy_x, numpy_y, label = 'data')
-     plt.plot(numpy_x, linear_trend(numpy_x), linestyle='dashed', color="orange", label = 'linear trend')
-     plt.grid(color="gainsboro")
-     plt.legend(loc='upper right', fontsize=12)
+     create_subplot(3, 2, 1, numpy_x, linear_trend(numpy_x), 'linear trend')
      plt.title("Линейный \n$R^2=$" + str(linear_r2) + "\n{0}x + {1}".format(*set_line_by_data))
 
-     plt.subplot(2, 3, 3)
-     plt.scatter(numpy_x, numpy_y) # точечный график по x_numpy, y_numpy
-     plt.plot(linspace_x, polinom_trend(linspace_x), linestyle='dashed', color="purple") # полиномиальный тренд
-     plt.grid(color="gainsboro") # Сетка
-     plt.title("Полиномиальный \n$R^2=$" + str(polinom_r2) + "\n${0}x^6 + {1}x^5$ + \n${2}x^4 + {3}x^3$ + \n${4}x^2 + {5}x$ + \n${6}$".format(*set_polinom_by_data))
-
-     plt.subplot(2, 3, 2)
-     plt.scatter(numpy_x, numpy_y) # точечный график по x_numpy, y_numpy
-     plt.plot(linspace_x, polinom_trend2(linspace_x2), linestyle='dashed', color="purple") # полиномиальный тренд
-     plt.grid(color="gainsboro") # Сетка
+     create_subplot(3, 2, 2, linspace_x, polinom_trend2(linspace_x2), "")
      plt.title("Полиномиальный 2 \n$R^2=$" + str(polinom_r2) + "${0}x^2 + {1}x$ + \n${2}$".format(*set_polinom_by_data2))
 
-     plt.subplot(2, 3, 4)
-     plt.scatter(numpy_x, numpy_y)  # точечный график по x_numpy, y_numpy
-     plt.plot(linspace_x, polinom_trend4(linspace_x4), linestyle='dashed', color="purple")  # полиномиальный тренд
-     plt.grid(color="gainsboro")  # Сетка
-     plt.title("Полиномиальный 4 \n$R^2=$" + str(polinom_r2) + "${0}x^4 + {1}x^3$ + \n${2}x^2 + {3}x$ + \n${4}$".format(*set_polinom_by_data4))
+     create_subplot(3, 2, 3, linspace_x, polinom_trend4(linspace_x4), "")
+     plt.title("Полиномиальный 4 \n$R^2=$" + str(polinom_r2) + "${0}x^4 + {1}x^3$ + \n${2}x^2 + {3}x$ + \n${4}$".format(
+          *set_polinom_by_data4))
 
-     plt.subplot(2, 3, 5)
-     plt.scatter(numpy_x, numpy_y, label='data')  # точечный график по x_numpy, y_numpy
-     plt.plot(numpy_x, log_trend, linestyle='dashed', color="orange", label='log trend')  # логарифмический тренд
-     plt.grid(color="gainsboro")  # Сетка
-     plt.legend(loc='upper right', fontsize=12)
+     create_subplot(3, 2, 4, linspace_x, polinom_trend(linspace_x), "")
+     plt.title("Полиномиальный \n$R^2=$" + str(
+          polinom_r2) + "\n${0}x^6 + {1}x^5$ + \n${2}x^4 + {3}x^3$ + \n${4}x^2 + {5}x$ + \n${6}$".format(
+          *set_polinom_by_data))
+
+     create_subplot(3, 2, 5, numpy_x, log_trend, 'log_trend')
      plt.title("Логарифмический \n$R^2=$" + str(log_r2) + "\n${0}ln(x) + {1}$".format(*set_log_by_data))
 
-     plt.subplot(2, 3, 6)
-     plt.scatter(numpy_x, numpy_y) # точечный график по x_numpy, y_numpy
-     plt.plot(numpy_x, exp_trend, linestyle='dashed', color="purple")
-     plt.grid(color="gainsboro") # Сетка
+     create_subplot(3, 2, 6, numpy_x, exp_trend, "")
      plt.title("Экспоненциальный \n$R^2=$" + str(exp_r2) + "\n$12,677e^{-106x}$")
 
      fig = plt.gcf()
      fig.set_size_inches(15, 15)
+     fig.tight_layout(pad=10.0)
 
      plt.show()

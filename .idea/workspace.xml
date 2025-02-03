@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be69f068-6aba-4322-8808-7a25f2a8c177" name="Changes" comment="final">
-      <change afterPath="$PROJECT_DIR$/Lab2/Excel.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lab2/gui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lab2/solver.py" afterDir="false" />
+    <list default="true" id="be69f068-6aba-4322-8808-7a25f2a8c177" name="Changes" comment="Lab 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab1/Lab01-Lesha.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab1/task1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1/task1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab1/task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1/task2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,18 +46,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.gui.executor": "Run",
-    "Python.main_form.executor": "Run",
-    "Python.solver.executor": "Run",
-    "Python.task1.executor": "Run",
-    "Python.task2.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Repos/PyCharmProjects/ModelLabs/Lab2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.gui.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main_form.executor&quot;: &quot;Run&quot;,
+    &quot;Python.solver.executor&quot;: &quot;Run&quot;,
+    &quot;Python.task1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.task2.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Repos/PyCharmProjects/ModelLabs/Lab2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Repos\PyCharmProjects\ModelLabs\Lab2" />
@@ -119,7 +118,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738419069932</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Lab 2">
+      <option name="closed" value="true" />
+      <created>1738428589393</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738428589393</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Lab 2">
+      <option name="closed" value="true" />
+      <created>1738428626056</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738428626056</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -127,6 +142,7 @@
     <MESSAGE value="add gitignore and readme" />
     <MESSAGE value="functionality" />
     <MESSAGE value="final" />
-    <option name="LAST_COMMIT_MESSAGE" value="final" />
+    <MESSAGE value="Lab 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab 2" />
   </component>
 </project>
