@@ -29,7 +29,7 @@ class Solver:
         self.k1 = 0
         self.m = 0
 
-    def __calculate_temp_vars(self):
+    def calculate_temp_vars(self):
         self.mb = (self.den_cop - self.den_pet) * 4 * pi * self.r ** 3 / 3
         self.mbg = self.mb * self.g
         self.k1 = 6 * pi * self.mu * self.r
