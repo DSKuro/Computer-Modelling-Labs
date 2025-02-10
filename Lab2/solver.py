@@ -29,7 +29,7 @@ class Solver:
         self.k1 = 0
         self.m = 0
 
-    def calculate_temp_vars(self):
+    def __calculate_temp_vars(self):
         self.mb = (self.den_cop - self.den_pet) * 4 * pi * self.r ** 3 / 3
         self.mbg = self.mb * self.g
         self.k1 = 6 * pi * self.mu * self.r
@@ -43,8 +43,8 @@ class Solver:
         v.append(0)
         h.append(0)
         for i in range(1, self.max_count):
-            t.append(t[i - 1] + self.times)
-            v.append(
+            t.append(round(t[i - 1] + self.times, 4))
+            v.append(round(
                 v[i - 1] + self.times / 2 * ((self.mbg - self.k1 * v[i - 1]) / self.m +
                                         (
                                                 self.mbg - self.k1 * (v[i - 1] + self.times *
@@ -55,8 +55,10 @@ class Solver:
                                         )
                                         / self.m
                                         )
+            , 4)
             )
-            h.append(h[i - 1] + v[i] * self.times)
+            h.append(
+                round(h[i - 1] + v[i] * self.times, 4))
 
         print(t)
         print(v)
