@@ -54,6 +54,8 @@ def create_graphics():
 
      linear_r2 = r2_score(numpy_y, linear_trend(numpy_x))
      polinom_r2 = r2_score(numpy_y, polinom_trend(numpy_x))
+     polinom4_r2 = r2_score(numpy_y, polinom_trend4(numpy_x))
+     polinom2_r2 = r2_score(numpy_y, polinom_trend2(numpy_x))
      log_r2 = r2_score(numpy_y, log_trend)
      exp_r2 = r2_score(numpy_y, exp_trend)
 
@@ -65,10 +67,10 @@ def create_graphics():
      plt.title("Линейный \n$R^2=$" + str(linear_r2) + "\n{0}x + {1}".format(*set_line_by_data))
 
      create_subplot(3, 2, 2, linspace_x, polinom_trend2(linspace_x2), "")
-     plt.title("Полиномиальный 2 \n$R^2=$" + str(polinom_r2) + "${0}x^2 + {1}x$ + \n${2}$".format(*set_polinom_by_data2))
+     plt.title("Полиномиальный 2 \n$R^2=$" + str(polinom2_r2) + "${0}x^2 + {1}x$ + \n${2}$".format(*set_polinom_by_data2))
 
      create_subplot(3, 2, 3, linspace_x, polinom_trend4(linspace_x4), "")
-     plt.title("Полиномиальный 4 \n$R^2=$" + str(polinom_r2) + "${0}x^4 + {1}x^3$ + \n${2}x^2 + {3}x$ + \n${4}$".format(
+     plt.title("Полиномиальный 4 \n$R^2=$" + str(polinom4_r2) + "${0}x^4 + {1}x^3$ + \n${2}x^2 + {3}x$ + \n${4}$".format(
           *set_polinom_by_data4))
 
      create_subplot(3, 2, 4, linspace_x, polinom_trend(linspace_x), "")
