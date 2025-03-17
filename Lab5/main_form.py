@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QHeaderView, QLabel, QPushButton,
                                QSizePolicy, QTabWidget, QTableWidget, QTableWidgetItem,
                                QTextEdit, QWidget, QDialog, QDialogButtonBox, QVBoxLayout)
-import task1
+
 import task1_python
 import task2_python
 import task1_2_simpy
@@ -162,8 +162,14 @@ class Ui_Form(object):
         self.txtO2.setFont(font)
         self.tabWidget.addTab(self.tab_2, "")
 
+        self.pushButton = QPushButton(self.tab_2)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(600, 273, 181, 41))
+        self.pushButton.setFont(font)
+
         self.btnRun.clicked.connect(self.btn_single_run_click)
         self.btnRun_2.clicked.connect(self.btn_second_run_click)
+        self.pushButton.clicked.connect(self.btn_log_click)
 
         self.retranslateUi(Form)
 
@@ -201,6 +207,9 @@ class Ui_Form(object):
         ___qtablewidgetitem6.setText(QCoreApplication.translate("Form", u"\u0414\u043b\u0438\u043d\u0430 \u041e\u0447\u0435\u0440\u0435\u0434\u0438", None));
         self.label_7.setText(QCoreApplication.translate("Form", u"\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043a\u0430\u043d\u0430\u043b\u043e\u0432", None))
         self.label_8.setText(QCoreApplication.translate("Form", u"\u041e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u0438\u0435 \u043e\u0447\u0435\u0440\u0435\u0434\u0438", None))
+        self.pushButton.setText(QCoreApplication.translate("Form",
+                                                           u"\u0412\u044b\u0432\u043e\u0434 \u043f\u043e \u043a\u0430\u043d\u0430\u043b\u0430\u043c",
+                                                           None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("Form", u"\u041c\u043d\u043e\u0433\u043e\u043a\u0430\u043d\u0430\u043b\u044c\u043d\u0430\u044f", None))
     # retranslateUi
 
@@ -255,6 +264,7 @@ class Ui_Form(object):
         self.update_single_table(self.tableWidget, ['Теория', p_reject, p_accept], 2)
 
     def btn_second_run_click(self):
+        self.run = True
         try:
             l = float(self.txtl_2.toPlainText())
             if l <= 0.0:
@@ -279,9 +289,9 @@ class Ui_Form(object):
 
         if limit == 0:
             limit = None
-        system2 = Lab5.task2_python.System(servers, limit, l, t, True)
-        system2.simulate(to)
-        p_reject, p_accept, lq = system2.get_values()
+        self.system2 = Lab5.task2_python.System(servers, limit, l, t, True)
+        self.system2.simulate(to)
+        p_reject, p_accept, lq = self.system2.get_values()
         self.update_single_table(self.tableWidget_2, ['Кастомный', p_reject, p_accept, lq], 0)
 
         env = simpy.Environment()
@@ -294,7 +304,11 @@ class Ui_Form(object):
         p_reject, p_accept, avg = system.get_values()
         self.update_single_table(self.tableWidget_2,['Simpy', p_reject, p_accept, avg], 1)
 
-        p_reject, p_accept, avg = system2.get_theoretical()
+        p_reject, p_accept, avg = self.system2.get_theoretical()
         self.update_single_table(self.tableWidget_2, ['Теория', p_reject, p_accept, avg], 2)
 
+    def btn_log_click(self):
+        if not self.run:
+            return
 
+        self.system2.save_log()

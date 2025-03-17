@@ -60,6 +60,9 @@ class System:
         self.rejected = 0
         self.queue_length = []
         self.ignore = ignore
+        self.server_logs = {}
+        for i in range(num_servers):
+            self.server_logs[i] = 0
 
     def simulate(self, total_time):
         while self.time < total_time:
@@ -73,6 +76,7 @@ class System:
                     print(f"Клиент обслуживается, время начала обслуживания {self.time:.2f}, на {i} канале")
                     server.start_service(new_customer, self.time)
                     self.customers_served += 1
+                    self.server_logs[i] += 1
                     break
                 i += 1
             else:
@@ -88,14 +92,24 @@ class System:
                     print(f"Клиент закончил обслуживание, время конца обслуживания {finished_customer.finish_time:.2f}, на {i} канале")
                 i += 1
 
+    def save_log(self):
+        f = open("log.txt", "w+", encoding='utf-8')
+        f.writelines('Количество обслуживаний по каналам:\n')
+        for i in self.server_logs.keys():
+            f.writelines(f'{i} канал обслужил {self.server_logs[i]} клиентов\n')
+        f.writelines(f'Общая вероятность обслуживания: {self.p_served:.2f}\n')
+        f.writelines(f'Общая вероятность отказа: {self.p_rejection:.2f}\n')
+        f.writelines(f'Длина очереди: {self.avg_len:.2f}')
+        f.close()
+
     def get_values(self):
         total_clients = self.customers_served + self.rejected
         if total_clients == 0:
             return 0, 0
-        p_rejection = self.rejected / total_clients
-        p_served = self.customers_served / total_clients
-        avg_len = sum(self.queue_length) / len(self.queue_length)
-        return p_rejection, p_served, avg_len
+        self.p_rejection = self.rejected / total_clients
+        self.p_served = self.customers_served / total_clients
+        self.avg_len = sum(self.queue_length) / len(self.queue_length)
+        return self.p_rejection, self.p_served, self.avg_len
 
     def get_theoretical(self):
         mu = 1 / self.service_time
